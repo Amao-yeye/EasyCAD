@@ -1,0 +1,61 @@
+# Project: graphics
+# Makefile created by Dev-C++ 5.5.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = include/exceptio.o include/genlib.o include/graphics.o include/random.o include/simpio.o include/strlib.o drawGraph.o file.o main.o menu.o process.o text.o
+LINKOBJ  = include/exceptio.o include/genlib.o include/graphics.o include/random.o include/simpio.o include/strlib.o drawGraph.o file.o main.o menu.o process.o text.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/lib" -static-libstdc++ -static-libgcc -mwindows -m32
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"./include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.7.2/include/c++" -I"./include"
+BIN      = graphics.exe
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+include/exceptio.o: include/exceptio.c
+	$(CC) -c include/exceptio.c -o include/exceptio.o $(CFLAGS)
+
+include/genlib.o: include/genlib.c
+	$(CC) -c include/genlib.c -o include/genlib.o $(CFLAGS)
+
+include/graphics.o: include/graphics.c
+	$(CC) -c include/graphics.c -o include/graphics.o $(CFLAGS)
+
+include/random.o: include/random.c
+	$(CC) -c include/random.c -o include/random.o $(CFLAGS)
+
+include/simpio.o: include/simpio.c
+	$(CC) -c include/simpio.c -o include/simpio.o $(CFLAGS)
+
+include/strlib.o: include/strlib.c
+	$(CC) -c include/strlib.c -o include/strlib.o $(CFLAGS)
+
+drawGraph.o: drawGraph.c
+	$(CC) -c drawGraph.c -o drawGraph.o $(CFLAGS)
+
+file.o: file.c
+	$(CC) -c file.c -o file.o $(CFLAGS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+menu.o: menu.c
+	$(CC) -c menu.c -o menu.o $(CFLAGS)
+
+process.o: process.c
+	$(CC) -c process.c -o process.o $(CFLAGS)
+
+text.o: text.c
+	$(CC) -c text.c -o text.o $(CFLAGS)
